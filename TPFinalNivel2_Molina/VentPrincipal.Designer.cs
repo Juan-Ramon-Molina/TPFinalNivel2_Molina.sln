@@ -50,26 +50,33 @@
             // 
             // DgvArticulos
             // 
+            this.DgvArticulos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.DgvArticulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvArticulos.Location = new System.Drawing.Point(29, 273);
+            this.DgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.DgvArticulos.Location = new System.Drawing.Point(29, 253);
+            this.DgvArticulos.MultiSelect = false;
             this.DgvArticulos.Name = "DgvArticulos";
             this.DgvArticulos.RowHeadersWidth = 51;
             this.DgvArticulos.RowTemplate.Height = 24;
-            this.DgvArticulos.Size = new System.Drawing.Size(944, 191);
+            this.DgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvArticulos.Size = new System.Drawing.Size(749, 211);
             this.DgvArticulos.TabIndex = 0;
+            this.DgvArticulos.SelectionChanged += new System.EventHandler(this.DgvArticulos_SelectionChanged);
             // 
             // PbxArticulos
             // 
             this.PbxArticulos.Location = new System.Drawing.Point(29, 48);
             this.PbxArticulos.Name = "PbxArticulos";
-            this.PbxArticulos.Size = new System.Drawing.Size(263, 184);
+            this.PbxArticulos.Size = new System.Drawing.Size(246, 180);
+            this.PbxArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PbxArticulos.TabIndex = 1;
             this.PbxArticulos.TabStop = false;
             // 
             // LblMarca
             // 
             this.LblMarca.AutoSize = true;
-            this.LblMarca.Location = new System.Drawing.Point(769, 104);
+            this.LblMarca.Location = new System.Drawing.Point(524, 156);
             this.LblMarca.Name = "LblMarca";
             this.LblMarca.Size = new System.Drawing.Size(64, 19);
             this.LblMarca.TabIndex = 2;
@@ -78,7 +85,7 @@
             // LblCategoria
             // 
             this.LblCategoria.AutoSize = true;
-            this.LblCategoria.Location = new System.Drawing.Point(743, 52);
+            this.LblCategoria.Location = new System.Drawing.Point(498, 104);
             this.LblCategoria.Name = "LblCategoria";
             this.LblCategoria.Size = new System.Drawing.Size(90, 19);
             this.LblCategoria.TabIndex = 4;
@@ -88,7 +95,7 @@
             // 
             this.BtnFiltrar.BackColor = System.Drawing.Color.Black;
             this.BtnFiltrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnFiltrar.Location = new System.Drawing.Point(746, 149);
+            this.BtnFiltrar.Location = new System.Drawing.Point(501, 201);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.Size = new System.Drawing.Size(78, 27);
             this.BtnFiltrar.TabIndex = 5;
@@ -99,7 +106,7 @@
             // 
             this.BtnQuitar.BackColor = System.Drawing.Color.Black;
             this.BtnQuitar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnQuitar.Location = new System.Drawing.Point(350, 190);
+            this.BtnQuitar.Location = new System.Drawing.Point(297, 186);
             this.BtnQuitar.Name = "BtnQuitar";
             this.BtnQuitar.Size = new System.Drawing.Size(100, 42);
             this.BtnQuitar.TabIndex = 6;
@@ -110,7 +117,7 @@
             // 
             this.BtnModificar.BackColor = System.Drawing.Color.Black;
             this.BtnModificar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnModificar.Location = new System.Drawing.Point(350, 118);
+            this.BtnModificar.Location = new System.Drawing.Point(297, 114);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(100, 42);
             this.BtnModificar.TabIndex = 8;
@@ -121,18 +128,19 @@
             // 
             this.BtnAgregarNuevo.BackColor = System.Drawing.Color.Black;
             this.BtnAgregarNuevo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnAgregarNuevo.Location = new System.Drawing.Point(350, 52);
+            this.BtnAgregarNuevo.Location = new System.Drawing.Point(297, 48);
             this.BtnAgregarNuevo.Name = "BtnAgregarNuevo";
             this.BtnAgregarNuevo.Size = new System.Drawing.Size(78, 42);
             this.BtnAgregarNuevo.TabIndex = 9;
             this.BtnAgregarNuevo.Text = "Nuevo";
             this.BtnAgregarNuevo.UseVisualStyleBackColor = false;
+            this.BtnAgregarNuevo.Click += new System.EventHandler(this.BtnAgregarNuevo_Click);
             // 
             // BtnMarcas
             // 
             this.BtnMarcas.BackColor = System.Drawing.Color.Black;
             this.BtnMarcas.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnMarcas.Location = new System.Drawing.Point(873, 480);
+            this.BtnMarcas.Location = new System.Drawing.Point(678, 480);
             this.BtnMarcas.Name = "BtnMarcas";
             this.BtnMarcas.Size = new System.Drawing.Size(100, 42);
             this.BtnMarcas.TabIndex = 10;
@@ -143,7 +151,7 @@
             // 
             this.BtnInacctivos.BackColor = System.Drawing.Color.Black;
             this.BtnInacctivos.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnInacctivos.Location = new System.Drawing.Point(639, 480);
+            this.BtnInacctivos.Location = new System.Drawing.Point(444, 480);
             this.BtnInacctivos.Name = "BtnInacctivos";
             this.BtnInacctivos.Size = new System.Drawing.Size(100, 42);
             this.BtnInacctivos.TabIndex = 11;
@@ -154,7 +162,7 @@
             // 
             this.BtnCategorias.BackColor = System.Drawing.Color.Black;
             this.BtnCategorias.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnCategorias.Location = new System.Drawing.Point(757, 480);
+            this.BtnCategorias.Location = new System.Drawing.Point(562, 480);
             this.BtnCategorias.Name = "BtnCategorias";
             this.BtnCategorias.Size = new System.Drawing.Size(100, 42);
             this.BtnCategorias.TabIndex = 12;
@@ -179,7 +187,7 @@
             // 
             // TbxFiltrar
             // 
-            this.TbxFiltrar.Location = new System.Drawing.Point(839, 149);
+            this.TbxFiltrar.Location = new System.Drawing.Point(594, 201);
             this.TbxFiltrar.Name = "TbxFiltrar";
             this.TbxFiltrar.Size = new System.Drawing.Size(133, 27);
             this.TbxFiltrar.TabIndex = 15;
@@ -187,7 +195,7 @@
             // CbxCategoria
             // 
             this.CbxCategoria.FormattingEnabled = true;
-            this.CbxCategoria.Location = new System.Drawing.Point(840, 48);
+            this.CbxCategoria.Location = new System.Drawing.Point(595, 100);
             this.CbxCategoria.Name = "CbxCategoria";
             this.CbxCategoria.Size = new System.Drawing.Size(133, 27);
             this.CbxCategoria.TabIndex = 16;
@@ -195,7 +203,7 @@
             // CbxMarca
             // 
             this.CbxMarca.FormattingEnabled = true;
-            this.CbxMarca.Location = new System.Drawing.Point(839, 96);
+            this.CbxMarca.Location = new System.Drawing.Point(594, 148);
             this.CbxMarca.Name = "CbxMarca";
             this.CbxMarca.Size = new System.Drawing.Size(133, 27);
             this.CbxMarca.TabIndex = 17;
@@ -205,7 +213,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(1000, 534);
+            this.ClientSize = new System.Drawing.Size(820, 534);
             this.Controls.Add(this.CbxMarca);
             this.Controls.Add(this.CbxCategoria);
             this.Controls.Add(this.TbxFiltrar);
@@ -226,6 +234,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "VentPrincipal";
             this.Text = "Sistema de control";
+            this.Load += new System.EventHandler(this.VentPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxArticulos)).EndInit();
             this.ResumeLayout(false);

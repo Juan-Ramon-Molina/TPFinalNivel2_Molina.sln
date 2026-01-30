@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="AccesoDB.cs" />
     <Compile Include="ArticuloSql.cs" />
+    <Compile Include="CategoriaSql.cs" />
+    <Compile Include="HelperSql.cs" />
+    <Compile Include="MarcaSql.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
