@@ -43,6 +43,25 @@ namespace Datos_SQL_
                 throw ex;
             }
         }
+        public void SetearParametros(string columna, object AtributoDelObj)
+        {
+           comando.Parameters.AddWithValue(columna, AtributoDelObj);
+        }
+        public void EjecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
          
 
         //Metodo cerrar conexion.

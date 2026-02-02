@@ -44,6 +44,7 @@
             this.TbxFiltrar = new System.Windows.Forms.TextBox();
             this.CbxCategoria = new System.Windows.Forms.ComboBox();
             this.CbxMarca = new System.Windows.Forms.ComboBox();
+            this.BtnVisualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxArticulos)).BeginInit();
             this.SuspendLayout();
@@ -106,31 +107,33 @@
             // 
             this.BtnQuitar.BackColor = System.Drawing.Color.Black;
             this.BtnQuitar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnQuitar.Location = new System.Drawing.Point(297, 186);
+            this.BtnQuitar.Location = new System.Drawing.Point(297, 187);
             this.BtnQuitar.Name = "BtnQuitar";
-            this.BtnQuitar.Size = new System.Drawing.Size(100, 42);
+            this.BtnQuitar.Size = new System.Drawing.Size(100, 41);
             this.BtnQuitar.TabIndex = 6;
             this.BtnQuitar.Text = "Quitar";
             this.BtnQuitar.UseVisualStyleBackColor = false;
+            this.BtnQuitar.Click += new System.EventHandler(this.BtnQuitar_Click);
             // 
             // BtnModificar
             // 
             this.BtnModificar.BackColor = System.Drawing.Color.Black;
             this.BtnModificar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnModificar.Location = new System.Drawing.Point(297, 114);
+            this.BtnModificar.Location = new System.Drawing.Point(297, 148);
             this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(100, 42);
+            this.BtnModificar.Size = new System.Drawing.Size(100, 33);
             this.BtnModificar.TabIndex = 8;
             this.BtnModificar.Text = "Modificar";
             this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnAgregarNuevo
             // 
             this.BtnAgregarNuevo.BackColor = System.Drawing.Color.Black;
             this.BtnAgregarNuevo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnAgregarNuevo.Location = new System.Drawing.Point(297, 48);
+            this.BtnAgregarNuevo.Location = new System.Drawing.Point(297, 104);
             this.BtnAgregarNuevo.Name = "BtnAgregarNuevo";
-            this.BtnAgregarNuevo.Size = new System.Drawing.Size(78, 42);
+            this.BtnAgregarNuevo.Size = new System.Drawing.Size(78, 38);
             this.BtnAgregarNuevo.TabIndex = 9;
             this.BtnAgregarNuevo.Text = "Nuevo";
             this.BtnAgregarNuevo.UseVisualStyleBackColor = false;
@@ -157,6 +160,7 @@
             this.BtnInacctivos.TabIndex = 11;
             this.BtnInacctivos.Text = "Inactivos";
             this.BtnInacctivos.UseVisualStyleBackColor = false;
+            this.BtnInacctivos.Click += new System.EventHandler(this.BtnInacctivos_Click);
             // 
             // BtnCategorias
             // 
@@ -208,12 +212,25 @@
             this.CbxMarca.Size = new System.Drawing.Size(133, 27);
             this.CbxMarca.TabIndex = 17;
             // 
+            // BtnVisualizar
+            // 
+            this.BtnVisualizar.BackColor = System.Drawing.Color.Black;
+            this.BtnVisualizar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.BtnVisualizar.Location = new System.Drawing.Point(297, 64);
+            this.BtnVisualizar.Name = "BtnVisualizar";
+            this.BtnVisualizar.Size = new System.Drawing.Size(100, 34);
+            this.BtnVisualizar.TabIndex = 18;
+            this.BtnVisualizar.Text = "Ver";
+            this.BtnVisualizar.UseVisualStyleBackColor = false;
+            this.BtnVisualizar.Click += new System.EventHandler(this.BtnVisualizar_Click);
+            // 
             // VentPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(820, 534);
+            this.Controls.Add(this.BtnVisualizar);
             this.Controls.Add(this.CbxMarca);
             this.Controls.Add(this.CbxCategoria);
             this.Controls.Add(this.TbxFiltrar);
@@ -260,6 +277,7 @@
         private System.Windows.Forms.TextBox TbxFiltrar;
         private System.Windows.Forms.ComboBox CbxCategoria;
         private System.Windows.Forms.ComboBox CbxMarca;
+        private System.Windows.Forms.Button BtnVisualizar;
     }
 }
 
