@@ -34,5 +34,21 @@ namespace Datos_SQL_
             }
             finally { data.CerrarConexion(); }
         }
+        public void CrearCategoria(Categoria nueva)
+        {
+            AccesoDB data = new AccesoDB();
+            try
+            {
+                data.SetearComando("insert into CATEGORIAS (Descripcion) values (@descripcion)");
+                data.SetearParametros("@descripcion", nueva.descripcion);
+                data.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { data.CerrarConexion(); }
+        }
     } 
 }

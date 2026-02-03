@@ -102,5 +102,24 @@ namespace TPFinalNivel2_Molina
                 throw;
             }
         }
+        //Ventana categorias.
+        private void BtnCategorias_Click(object sender, EventArgs e)
+        {
+            VentAtributos VentCategorias= new VentAtributos(ModoAtributo.Categorias);
+            VentCategorias.ShowDialog();
+            CargarDgv();
+        }
+        //Ventana marcas.5
+        private void BtnMarcas_Click(object sender, EventArgs e)
+        {
+            VentAtributos VentMarcas=new VentAtributos(ModoAtributo.Marcas);
+            VentMarcas.ShowDialog();
+            CargarDgv();
+        }
+        //Reestablece la tabla.
+        private void BtnResetDgv_Click(object sender, EventArgs e)
+        {
+            CargarDgv();
+        }
     }
 }

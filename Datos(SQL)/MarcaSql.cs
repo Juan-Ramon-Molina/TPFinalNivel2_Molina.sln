@@ -35,5 +35,22 @@ namespace Datos_SQL_
             finally { data.CerrarConexion(); }
 
         }
+        public void CrearMarca(Marca nueva)
+        {
+            AccesoDB data=new AccesoDB();
+            try
+            {
+                data.SetearComando("insert into MARCAS(Descripcion) values (@descripcion)");
+                data.SetearParametros("@descripcion", nueva.descripcion);
+                data.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { data.CerrarConexion(); }
+        }
+    
     }
 }

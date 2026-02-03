@@ -54,6 +54,12 @@
     <Compile Include="NuevoRegistro.Designer.cs">
       <DependentUpon>NuevoRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="VentAtributos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentAtributos.Designer.cs">
+      <DependentUpon>VentAtributos.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentInactivos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VentAtributos.resx">
+      <DependentUpon>VentAtributos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VentInactivos.resx">
       <DependentUpon>VentInactivos.cs</DependentUpon>
     </EmbeddedResource>
