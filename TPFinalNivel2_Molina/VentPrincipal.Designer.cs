@@ -166,6 +166,7 @@
             this.TbxBusquedaRapida.Name = "TbxBusquedaRapida";
             this.TbxBusquedaRapida.Size = new System.Drawing.Size(136, 27);
             this.TbxBusquedaRapida.TabIndex = 13;
+            this.TbxBusquedaRapida.TextChanged += new System.EventHandler(this.TbxBusquedaRapida_TextChanged);
             // 
             // LblBusquedaRapida
             // 
@@ -185,19 +186,23 @@
             // 
             // CbxCategoria
             // 
+            this.CbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbxCategoria.FormattingEnabled = true;
-            this.CbxCategoria.Location = new System.Drawing.Point(714, 253);
+            this.CbxCategoria.Location = new System.Drawing.Point(714, 333);
             this.CbxCategoria.Name = "CbxCategoria";
             this.CbxCategoria.Size = new System.Drawing.Size(94, 27);
             this.CbxCategoria.TabIndex = 16;
+            this.CbxCategoria.SelectedIndexChanged += new System.EventHandler(this.CbxCategoria_SelectedIndexChanged);
             // 
             // CbxMarca
             // 
+            this.CbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbxMarca.FormattingEnabled = true;
-            this.CbxMarca.Location = new System.Drawing.Point(714, 311);
+            this.CbxMarca.Location = new System.Drawing.Point(714, 265);
             this.CbxMarca.Name = "CbxMarca";
             this.CbxMarca.Size = new System.Drawing.Size(94, 27);
             this.CbxMarca.TabIndex = 17;
+            this.CbxMarca.SelectedIndexChanged += new System.EventHandler(this.CbxMarca_SelectedIndexChanged);
             // 
             // BtnVisualizar
             // 
@@ -231,6 +236,7 @@
             // 
             // CbxCampo
             // 
+            this.CbxCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbxCampo.FormattingEnabled = true;
             this.CbxCampo.Location = new System.Drawing.Point(686, 39);
             this.CbxCampo.Name = "CbxCampo";
@@ -239,6 +245,7 @@
             // 
             // CbxCriterio
             // 
+            this.CbxCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbxCriterio.FormattingEnabled = true;
             this.CbxCriterio.Location = new System.Drawing.Point(686, 81);
             this.CbxCriterio.Name = "CbxCriterio";
@@ -247,7 +254,7 @@
             // 
             // BtnResetDgv
             // 
-            this.BtnResetDgv.Location = new System.Drawing.Point(326, 471);
+            this.BtnResetDgv.Location = new System.Drawing.Point(326, 479);
             this.BtnResetDgv.Name = "BtnResetDgv";
             this.BtnResetDgv.Size = new System.Drawing.Size(482, 46);
             this.BtnResetDgv.TabIndex = 23;
