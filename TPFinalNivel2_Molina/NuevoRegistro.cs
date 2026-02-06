@@ -14,7 +14,7 @@ using System.Configuration;
 
 namespace TPFinalNivel2_Molina
 {
-    //Modo de pantalla creado, para que la pantalla sirva para tres eventos.
+    //Modo de pantalla creado, para que la pantalla sirva para tres eventos. ENUMeracion de opciones.
     public enum ModoPantalla
     {
         Alta,
@@ -29,7 +29,7 @@ namespace TPFinalNivel2_Molina
         private Articulo seleccionado;
         private OpenFileDialog openfile = null;
         
-        //Articulo seleccionado viaja por pantalla, caso de ser nuevo(Alta) sera null.
+        //Constructor con swtch. Articulo seleccionado viaja por pantalla, caso de ser nuevo(Alta) sera null.
         public NuevoRegistro(ModoPantalla modo, Articulo seleccionado = null)
         {
 
@@ -41,7 +41,7 @@ namespace TPFinalNivel2_Molina
                     this.modo = modo;
                     Text = "Generar nuevo articulo";
                     errorprovider1.ContainerControl = this;
-                    this.seleccionado = seleccionado;
+                    this.seleccionado = seleccionado;                   
                     break;
                 case ModoPantalla.Modificacion:
                     this.modo = modo;
@@ -93,6 +93,11 @@ namespace TPFinalNivel2_Molina
                     TbxPrecio.Text = seleccionado.precio.ToString();
                     CbxCategoria.SelectedValue = seleccionado.categoria.id;
                     CbxMarca.SelectedValue= seleccionado.marca.id;
+                }
+                else//Si el seleccionado es null, quiere decir que es nuevo. Por lo tanto reseteo los cbx.
+                {
+                    CbxCategoria.SelectedIndex = -1;
+                    CbxMarca.SelectedIndex = -1;
                 }
             }
             catch (Exception ex)
@@ -148,30 +153,82 @@ namespace TPFinalNivel2_Molina
             {
                 seleccionado = new Articulo();
             }
+            errorprovider1.Clear();
+            //If que controla el ingreso de precio.TryParse, intenta transformar el tbx a decimal.
+            //En caso de lograrlo, captura el decimal en la variable precio.
+            //En caso de no lograrlo, emite error e interrumpe la accion.
+            if (!decimal.TryParse(TbxPrecio.Text, out decimal precio))
+            {
+                errorprovider1.SetError(TbxPrecio, "Invalido");
+                return;
+            }
+
+            
             try
             {
                 seleccionado.codigo = TbxCodigo.Text;
                 seleccionado.nombre = TbxNombre.Text;
                 seleccionado.descripcion = TbxDescripcion.Text;
                 seleccionado.imagenUrl = TbxImagen.Text;
-                seleccionado.precio = decimal.Parse(TbxPrecio.Text);
-                seleccionado.categoria=(Categoria)CbxCategoria.SelectedItem;
-                seleccionado.marca=(Marca)CbxMarca.SelectedItem;
+                seleccionado.precio = precio;
+                //'As' previene si el usuario no ha seleccionado, dejando atributos en null.
+                //Luego emitira el mensaje fluentvalidation.
+                seleccionado.categoria=CbxCategoria.SelectedItem as Categoria;
+                seleccionado.marca=CbxMarca.SelectedItem as Marca;
 
-                switch (modo)
+                //Llamo a la clase fluentvalidation.
+                ArticuloFluentValidation validacionArt = new ArticuloFluentValidation();
+
+                //Enviar a validar, por parametro, el nuevo objeto.
+                var resultado=validacionArt.Validate(seleccionado);
+                //Limpia errores antiguos.
+                errorprovider1.Clear();
+                //Si el resultado no es valido entra en el true.
+                if (!resultado.IsValid)
                 {
-                    case ModoPantalla.Alta:
-                        DataArticulo.CrearArticulo(seleccionado);
-                        GuardarImagenOpenFile();
-                        MessageBox.Show("Articulo generado");
-                        Close();
-                        break;
-                    case ModoPantalla.Modificacion:
-                        DataArticulo.ModificarArticulo(seleccionado);
-                        GuardarImagenOpenFile();
-                        MessageBox.Show("Articulo modificado");
-                        Close();
-                        break;
+                    //Recorre coleccion de errores. y emite mensajes con un switch segun atributo
+                    foreach (var error in resultado.Errors)
+                    {
+                        switch (error.PropertyName)
+                        {
+                            case "codigo":
+                                errorprovider1.SetError(TbxCodigo, error.ErrorMessage);
+                                break;
+                            case "nombre":
+                                errorprovider1.SetError(TbxNombre, error.ErrorMessage);
+                                break;
+                            case "descripcion":
+                                errorprovider1.SetError(TbxDescripcion, error.ErrorMessage);
+                                break;
+                            case "marca":
+                                errorprovider1.SetError(CbxMarca, error.ErrorMessage);
+                                break;
+                            case "categoria":
+                                errorprovider1.SetError(CbxCategoria, error.ErrorMessage);
+                                break;
+                            case "precio":
+                                errorprovider1.SetError(TbxPrecio, error.ErrorMessage);
+                                break;
+                        }
+                    }
+                }
+                else//Si el resultado es valido se ejecutan las acciones
+                {
+                    switch (modo)
+                    {
+                        case ModoPantalla.Alta:
+                            DataArticulo.CrearArticulo(seleccionado);
+                            GuardarImagenOpenFile();
+                            MessageBox.Show("Articulo generado");
+                            Close();
+                            break;
+                        case ModoPantalla.Modificacion:
+                            DataArticulo.ModificarArticulo(seleccionado);
+                            GuardarImagenOpenFile();
+                            MessageBox.Show("Articulo modificado");
+                            Close();
+                            break;
+                    }
                 }
 
             }

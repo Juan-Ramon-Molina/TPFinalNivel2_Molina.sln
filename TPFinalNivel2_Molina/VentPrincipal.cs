@@ -15,9 +15,10 @@ namespace TPFinalNivel2_Molina
 {
     public partial class VentPrincipal : Form
     {
-
+        ErrorProvider errorpro1=new ErrorProvider();
         public VentPrincipal()
         {
+            errorpro1.ContainerControl = this;
             InitializeComponent();
         }
 
