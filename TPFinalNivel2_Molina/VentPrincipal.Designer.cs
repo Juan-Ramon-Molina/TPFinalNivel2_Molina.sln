@@ -87,6 +87,7 @@
             this.BtnFiltrar.TabIndex = 5;
             this.BtnFiltrar.Text = "Filtrar";
             this.BtnFiltrar.UseVisualStyleBackColor = false;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
             // BtnQuitar
             // 
@@ -242,6 +243,7 @@
             this.CbxCampo.Name = "CbxCampo";
             this.CbxCampo.Size = new System.Drawing.Size(122, 27);
             this.CbxCampo.TabIndex = 21;
+            this.CbxCampo.SelectedIndexChanged += new System.EventHandler(this.CbxCampo_SelectedIndexChanged);
             // 
             // CbxCriterio
             // 

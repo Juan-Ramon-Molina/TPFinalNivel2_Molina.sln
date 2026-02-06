@@ -189,5 +189,91 @@ namespace Datos_SQL_
             }
             finally { data.CerrarConexion(); }
         }
+        public List<Articulo> BusquedaAvanzada(string campo,string criterio, string filtro)
+        {
+            AccesoDB data= new AccesoDB();
+            List<Articulo> filtrados = new List<Articulo>();
+            try
+            {
+                string consulta = "select a.Id, Codigo, nombre, a.Descripcion DescripcionArticulo, ImagenUrl, Precio, IdMarca, m.Descripcion Marca, IdCategoria, c.Descripcion Categoria  from ARTICULOS a inner join MARCAS m on m.Id=a.IdMarca inner join CATEGORIAS c on c.id=a.IdCategoria where Codigo not like 'INACTIVO-%' and ";
+                //Armar consulta en base a los switch. termina con "and" para concatenar.
+                switch (campo)
+                {
+                    case "Precio":
+                        switch (criterio)
+                        {
+                            case "Mayores a :":
+                                consulta += "Precio >" + filtro;
+                                break;
+                            case "Menores a :":
+                                consulta += "Precio <" + filtro;
+                                break;
+                            case "Iguales a :":
+                                consulta += "Precio ==" + filtro;
+                                break;
+                        }
+                        break;
+
+                    case "Nombre":
+                        switch (criterio)
+                        {
+                            case "Empiezan con :":
+                                consulta += "Nombre like '" + filtro + "%'";
+                                break;
+                            case "Terminan con :":
+                                consulta += "Nombre like '%" + filtro + "'";                                
+                                break;
+                            case "Contienen :":
+                                consulta += "Nombre like '%" + filtro + "%'"; 
+                                break;
+                        }
+                        break;
+
+                    case "Descripcion":
+                        switch (criterio)
+                        {
+                            case "Empiezan con :":
+                                consulta += "a.Descripcion like '" + filtro + "%'";
+                                break;
+                            case "Terminan con :":
+                                consulta += "a.Descripcion like '%" + filtro + "'";
+                                break;
+                            case "Contienen :":
+                                consulta += "a.Descripcion like '%" + filtro + "%'";
+                                break;
+                        }
+                        break;
+
+                }
+                data.SetearComando(consulta);
+                data.EjecutarLectura();
+                while (data.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.id = (int)data.Lector["Id"];
+                    aux.codigo = HelperSql.ConvertirDbNull<string>(data.Lector, "Codigo");
+                    aux.nombre = HelperSql.ConvertirDbNull<string>(data.Lector, "Nombre");
+
+                    aux.descripcion = HelperSql.ConvertirDbNull<string>(data.Lector, "DescripcionArticulo");
+                    aux.imagenUrl = HelperSql.ConvertirDbNull<string>(data.Lector, "ImagenUrl");
+                    aux.precio = HelperSql.ConvertirDbNull<decimal>(data.Lector, "Precio");
+                    aux.marca = new Marca();
+                    aux.marca.id = (int)data.Lector["IdMarca"];
+                    aux.marca.descripcion = HelperSql.ConvertirDbNull<string>(data.Lector, "Marca");
+                    aux.categoria = new Categoria();
+                    aux.categoria.id = (int)data.Lector["IdCategoria"];
+                    aux.categoria.descripcion = HelperSql.ConvertirDbNull<string>(data.Lector, "Categoria");
+
+                    filtrados.Add(aux);
+                }
+                return filtrados;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { data.CerrarConexion(); }
+        }
     }
 }

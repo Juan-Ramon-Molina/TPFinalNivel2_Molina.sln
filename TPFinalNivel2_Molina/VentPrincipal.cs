@@ -51,6 +51,12 @@ namespace TPFinalNivel2_Molina
             categorias.Insert(0, new Categoria { id = 0, descripcion = "Todos" });
             CbxCategoria.DataSource = categorias;
             CbxCategoria.SelectedIndex = 0;
+            //Carga de cbx campo.
+            CbxCampo.Items.Add("Precio");
+            CbxCampo.Items.Add("Nombre");
+            CbxCampo.Items.Add("Descripcion");
+            CbxCampo.SelectedIndex = -1;
+            
         }
         //Seleccion en el DGV y cambio de PBX.
         private void DgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -132,14 +138,15 @@ namespace TPFinalNivel2_Molina
             CargarDgv();
         }
         
-        //Reestablece la tabla.
+        //Reestablece la tabla y los cbx.
         private void BtnResetDgv_Click(object sender, EventArgs e)
         {
             CargarDgv();
             TbxBusquedaRapida.Clear();
             CbxCategoria.SelectedIndex = 0;
             CbxMarca.SelectedIndex = 0;
-
+            CbxCampo.SelectedIndex = -1;
+            TbxFiltrar.Clear();
         }
 
         //Metodo de filtros por marca y categorias combinados.
@@ -212,5 +219,60 @@ namespace TPFinalNivel2_Molina
             HelperPresentacion.OcultarColumna(DgvArticulos, "Id");
         }
 
+        //Carga de cbxCriterio segun el valor de cbxcampo.
+        private void CbxCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                // Operador condicional null: "?". Accede al metodo tostring si lo anterior no es null.
+                //Evita problemas en las interfas, donde el valor queda null por segundos.
+                string campo = CbxCampo.SelectedItem?.ToString();
+                switch (campo)
+                {
+                    case "Precio":
+                        CbxCriterio.Items.Clear();
+                        CbxCriterio.Items.Add("Mayores a :");
+                        CbxCriterio.Items.Add("Menores a :");
+                        CbxCriterio.Items.Add("Iguales a :");
+                        break;
+                    case "Nombre":
+                    case "Descripcion":
+                        CbxCriterio.Items.Clear();
+                        CbxCriterio.Items.Add("Empiezan con :");
+                        CbxCriterio.Items.Add("Terminan con :");
+                        CbxCriterio.Items.Add("Contienen :");
+                        break;
+                        default:
+                        //Limpia cuando no hay cbxcampo, -1.
+                        CbxCriterio.Items.Clear();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        //Boton filtrar, capturamos campo,criterio,filtro y enviamos a articulosql con sus parametros.
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+            ArticuloSql data = new ArticuloSql();
+            try
+            {
+               
+                string campo = CbxCampo.SelectedItem.ToString();
+                string criterio = CbxCriterio.SelectedItem.ToString();
+                string filtro = TbxFiltrar.Text;
+                DgvArticulos.DataSource=data.BusquedaAvanzada(campo, criterio, filtro);
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
