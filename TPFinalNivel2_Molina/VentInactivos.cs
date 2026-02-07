@@ -37,17 +37,35 @@ namespace TPFinalNivel2_Molina
                 throw ex;
             }
         }
-        //Ventana recien cargada.
+        public void SinseleccionBloquearBotones()
+        {
+            HelperPresentacion.BloqueoBtnSinSeleccionado(DgvInactivos, BtnEliminar, BtnRecuperar, BtnVisualizar);
+        }
+        //Ventana recien cargada. Los botones nacen apagados para no romper.
+        //1- enabled falso en el load. 
+        //2-En changed u en otro proceso usar el metodo de bloqueo si no hay seleccion.
+        //Se activaran al haber un elemento seleccionado. Incluso si la tabla nace con un solo elemento.
+
         private void VentInactivos_Load(object sender, EventArgs e)
         {
+            BtnEliminar.Enabled = false;
+            BtnRecuperar.Enabled = false;
+            BtnVisualizar.Enabled = false;
             CargarDgv();
-            HelperPresentacion.CargarImagen(PbxInactivos, Inactivos[0].imagenUrl);
+            if (DgvInactivos.CurrentRow?.DataBoundItem is Articulo ArtCero)
+            {
+                HelperPresentacion.CargarImagen(PbxInactivos, ArtCero.imagenUrl);   
+            }
         }
 
         private void DgvInactivos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo) DgvInactivos.CurrentRow.DataBoundItem;
-            HelperPresentacion.CargarImagen(PbxInactivos,seleccionado.imagenUrl);
+            if(DgvInactivos.CurrentRow?.DataBoundItem is Articulo seleccionado)
+            {
+                HelperPresentacion.CargarImagen(PbxInactivos, seleccionado.imagenUrl);
+            }
+
+            SinseleccionBloquearBotones();
         }
 
         private void BtnVisualizar_Click(object sender, EventArgs e)
@@ -68,6 +86,7 @@ namespace TPFinalNivel2_Molina
                 data.RecuperarAriculo(seleccionado.id);
                 MessageBox.Show("Atriculo activo");
                 CargarDgv();
+                SinseleccionBloquearBotones();
             }
             catch (Exception ex)
             {
@@ -89,6 +108,7 @@ namespace TPFinalNivel2_Molina
                     data.EliminarArticulo(seleccionado.id);
                     MessageBox.Show("Atriculo activo");
                     CargarDgv();
+                    SinseleccionBloquearBotones();
                 }
                 catch (Exception ex)
                 {

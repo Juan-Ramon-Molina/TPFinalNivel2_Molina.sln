@@ -260,7 +260,7 @@
             this.BtnResetDgv.Name = "BtnResetDgv";
             this.BtnResetDgv.Size = new System.Drawing.Size(482, 46);
             this.BtnResetDgv.TabIndex = 23;
-            this.BtnResetDgv.Text = "Refrescar tabla";
+            this.BtnResetDgv.Text = "Refrescar pantalla";
             this.BtnResetDgv.UseVisualStyleBackColor = true;
             this.BtnResetDgv.Click += new System.EventHandler(this.BtnResetDgv_Click);
             // 

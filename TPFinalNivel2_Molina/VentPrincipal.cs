@@ -32,11 +32,26 @@ namespace TPFinalNivel2_Molina
             DgvArticulos.DataSource = articulos;
             HelperPresentacion.OcultarColumna(DgvArticulos, "id");
             HelperPresentacion.OcultarColumna(DgvArticulos, "ImagenUrl");
+           
+        }
+        //Bloqueo de botones y cbx habituales si no hay seleccion. Lo uso despues de realizar una accion en la tabla. 
+        //En el load los botones nacen bloqueados por si no hay seleccion.
+        public void SinSeleccionBloquearBotones()
+        {
+            HelperPresentacion.BloqueoBtnSinSeleccionado(DgvArticulos, BtnQuitar, BtnVisualizar, BtnModificar, BtnFiltrar);
+            bool hayseleccion = false;
+            hayseleccion = DgvArticulos.CurrentRow?.DataBoundItem != null;            
+            CbxCampo.Enabled = hayseleccion;
+            CbxCriterio.Enabled = hayseleccion;
         }
 
         //LOAD. Inicio de ventana.
         private void VentPrincipal_Load(object sender, EventArgs e)
         {
+            BtnQuitar.Enabled = false;
+            BtnModificar.Enabled = false;
+            BtnVisualizar.Enabled = false;
+            BtnFiltrar.Enabled = false;
             CargarDgv();
             HelperPresentacion.CargarImagen(PbxArticulos, articulos[0].imagenUrl);
             //Cargar ComboBox de marcas y categorias.
@@ -66,7 +81,8 @@ namespace TPFinalNivel2_Molina
             if(DgvArticulos.CurrentRow?.DataBoundItem is Articulo seleccionado)
             {
                  HelperPresentacion.CargarImagen(PbxArticulos,seleccionado.imagenUrl);
-            }       
+            }
+            SinSeleccionBloquearBotones();
         }
 
         private void BtnAgregarNuevo_Click(object sender, EventArgs e)
@@ -131,7 +147,7 @@ namespace TPFinalNivel2_Molina
             CargarDgv();
         }
         
-        //Ventana marcas.5
+        //Ventana marcas.
         private void BtnMarcas_Click(object sender, EventArgs e)
         {
             VentAtributos VentMarcas=new VentAtributos(ModoAtributo.Marcas);
@@ -190,12 +206,14 @@ namespace TPFinalNivel2_Molina
         
         private void CbxMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AplicarFiltrosMarcaCategorias();    
+            AplicarFiltrosMarcaCategorias();
+            SinSeleccionBloquearBotones();
         }
 
         private void CbxCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             AplicarFiltrosMarcaCategorias();
+            SinSeleccionBloquearBotones();
         }
 
         //Busqueda rapida, con findall(lamda)
@@ -218,6 +236,7 @@ namespace TPFinalNivel2_Molina
             DgvArticulos.DataSource = listafiltrorapido;
             HelperPresentacion.OcultarColumna(DgvArticulos, "ImagenUrl");
             HelperPresentacion.OcultarColumna(DgvArticulos, "Id");
+            SinSeleccionBloquearBotones();
         }
 
         //Carga de cbxCriterio segun el valor de cbxcampo.

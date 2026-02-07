@@ -28,5 +28,16 @@ namespace TPFinalNivel2_Molina
                 pbx.Load("https://greenshop.ar/wp-content/uploads/2024/06/A.2.37-J.500GR.jpg");
             }
         }
+
+        //Metodo bloquear botones si no hay seleccionado.
+        public static void BloqueoBtnSinSeleccionado(DataGridView dgv,params Button[] botones) 
+        {
+            bool hayseleccionado = dgv.CurrentRow?.DataBoundItem != null;
+           
+            foreach (Button boton in botones)
+            {
+               boton.Enabled=hayseleccionado;
+            }
+        }
     }
 }
