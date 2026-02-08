@@ -275,13 +275,60 @@ namespace TPFinalNivel2_Molina
                 throw ex;
             }
         }
+        //Validar filtro.
+        public bool ValidarFiltro()
+        {
+            //1-borrar errores pasados.
+            //2-usar if para detectar errores y modificar bandera.
+            //3-en caso de cbx completos, limitar ingreso de datos con un swith dependiendo el caracter. 
+            errorpro1.Clear();
+            bool HayError=false;
+            if (CbxCampo.SelectedIndex<0)
+            {
+                errorpro1.SetError(CbxCampo, "Seleccione");
+                HayError=true;
+            }
+            if(CbxCriterio.SelectedIndex<0)
+            {
+                errorpro1.SetError(CbxCriterio, "Seleccione");
+                HayError=true;
+            }
+            if (string.IsNullOrWhiteSpace(TbxFiltrar.Text))
+            {
+                errorpro1.SetError(TbxFiltrar, "Completar");
+                HayError = true;
+            
+            }
+            else
+            {
+                //usar ?, para en caso vacio el la variable campo sea null y se identifique el error.
+                string Campo=CbxCampo.SelectedItem?.ToString(); 
+                switch (Campo)
+                {
+                    case "Precio":
+                        if (!TbxFiltrar.Text.All(char.IsDigit))
+                        {
+                            errorpro1.SetError(TbxFiltrar, "Solo numeros");
+                            HayError= true;
+                        }
+                        break;
+                }
+            }
+
+                return HayError;
+        }
 
         //Boton filtrar, capturamos campo,criterio,filtro y enviamos a articulosql con sus parametros.
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
             ArticuloSql data = new ArticuloSql();
+           
             try
             {
+                if (ValidarFiltro())
+                {
+                    return;
+                }
                
                 string campo = CbxCampo.SelectedItem.ToString();
                 string criterio = CbxCriterio.SelectedItem.ToString();
