@@ -39,6 +39,7 @@
             // 
             // DgvInactivos
             // 
+            this.DgvInactivos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvInactivos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.DgvInactivos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvInactivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -109,7 +110,9 @@
             this.Controls.Add(this.DgvInactivos);
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "VentInactivos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Articulos Inactivos";
             this.Load += new System.EventHandler(this.VentInactivos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvInactivos)).EndInit();

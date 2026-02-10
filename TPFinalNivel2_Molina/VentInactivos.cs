@@ -31,10 +31,10 @@ namespace TPFinalNivel2_Molina
                 HelperPresentacion.OcultarColumna(DgvInactivos,"Id");
                 HelperPresentacion.OcultarColumna(DgvInactivos,"ImagenUrl");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                MessageBox.Show("Error al cargar la tabla.");
             }
         }
         public void SinseleccionBloquearBotones()
@@ -88,10 +88,10 @@ namespace TPFinalNivel2_Molina
                 CargarDgv();
                 SinseleccionBloquearBotones();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                MessageBox.Show("Error al recuperar el registro.");
             }
         }
 
@@ -106,14 +106,14 @@ namespace TPFinalNivel2_Molina
                     ArticuloSql data = new ArticuloSql();
                     Articulo seleccionado = (Articulo)DgvInactivos.CurrentRow.DataBoundItem;
                     data.EliminarArticulo(seleccionado.id);
-                    MessageBox.Show("Atriculo activo");
+                    MessageBox.Show("Atriculo eliminado");
                     CargarDgv();
                     SinseleccionBloquearBotones();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
-                    throw ex;
+                    MessageBox.Show("Error al eliminar articulo");
                 }
             }
               

@@ -47,13 +47,17 @@
             // 
             // DgvAtributos
             // 
+            this.DgvAtributos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvAtributos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.DgvAtributos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvAtributos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvAtributos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DgvAtributos.Location = new System.Drawing.Point(44, 47);
+            this.DgvAtributos.MultiSelect = false;
             this.DgvAtributos.Name = "DgvAtributos";
             this.DgvAtributos.RowHeadersWidth = 51;
             this.DgvAtributos.RowTemplate.Height = 24;
+            this.DgvAtributos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvAtributos.Size = new System.Drawing.Size(460, 181);
             this.DgvAtributos.TabIndex = 1;
             // 
@@ -75,7 +79,9 @@
             this.Controls.Add(this.BtnAgregar);
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "VentAtributos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentAtributos";
             this.Load += new System.EventHandler(this.VentAtributos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvAtributos)).EndInit();

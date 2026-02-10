@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 
 namespace TPFinalNivel2_Molina
 {
@@ -100,10 +102,13 @@ namespace TPFinalNivel2_Molina
                     CbxMarca.SelectedIndex = -1;
                 }
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-
-                throw ex;
+                MessageBox.Show("Fallo la conexion con el servidor.");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Fallo inesperado. Vuelva a intentarlo.");
             }
         }
         //Cargar imagen una vez se haya sacado de foco el tbx.
@@ -115,23 +120,40 @@ namespace TPFinalNivel2_Molina
         private void BtnExaminarImagen_Click(object sender, EventArgs e)
         {
             openfile = new OpenFileDialog();
-            openfile.Filter = "jpg|*.jpg";
-            if(DialogResult.OK == openfile.ShowDialog())
+            try
             {
-                TbxImagen.Text = openfile.FileName;
-                HelperPresentacion.CargarImagen(PbxNuevo,TbxImagen.Text);
+                openfile.Filter = "jpg|*.jpg";
+                if (DialogResult.OK == openfile.ShowDialog())
+                {
+                    TbxImagen.Text = openfile.FileName;
+                    HelperPresentacion.CargarImagen(PbxNuevo, TbxImagen.Text);
+                }
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Fallo la carga de la imagen. Si no carga, deje vacia.");
+            }
+            
         }
         //Metodo para guardar imagen del openfile.
         public void GuardarImagenOpenFile()
         {
-            if (openfile != null && !(TbxImagen.Text.StartsWith("http", StringComparison.OrdinalIgnoreCase)))
+            try
             {
-                //Newguide origina direcccion unica, tostring tansforma y get extension le agrega la extencion adecuada.
-                string nombre =Guid.NewGuid().ToString() + Path.GetExtension(openfile.FileName);
-                //Conbina de manera adecuada la ruta de destino.
-                string destino = Path.Combine(ConfigurationManager.AppSettings["CarpetaTP.C#2"],nombre);
-                File.Copy(openfile.FileName, destino);
+                if (openfile != null && !(TbxImagen.Text.StartsWith("http", StringComparison.OrdinalIgnoreCase)))
+                {
+                    //Newguide origina direcccion unica, tostring tansforma y get extension le agrega la extencion adecuada.
+                    string nombre = Guid.NewGuid().ToString() + Path.GetExtension(openfile.FileName);
+                    //Conbina de manera adecuada la ruta de destino.
+                    string destino = Path.Combine(ConfigurationManager.AppSettings["CarpetaTP.C#2"], nombre);
+                    File.Copy(openfile.FileName, destino);
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Fallo al guardar imagen en el los servidores");
             }
             
         }
@@ -214,6 +236,11 @@ namespace TPFinalNivel2_Molina
                 }
                 else//Si el resultado es valido se ejecutan las acciones
                 {
+                    DialogResult rta = MessageBox.Show("¿Desea ejecutar la accion?", "Atencion", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (rta == DialogResult.Cancel)
+                    {
+                        return;
+                    }
                     switch (modo)
                     {
                         case ModoPantalla.Alta:
@@ -228,17 +255,25 @@ namespace TPFinalNivel2_Molina
                             MessageBox.Show("Articulo modificado");
                             Close();
                             break;
+
                     }
                 }
 
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-
-                throw ex;
+                MessageBox.Show("Fallo la conexion del servidor al cargar el registro.");                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error en la carga del registro.");
             }
         }
 
-       
+        //Doble clip selecciona todo el texto
+        private void TbxImagen_DoubleClick(object sender, EventArgs e)
+        {
+            TbxImagen.SelectAll();
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Datos_SQL_;
+using System.Data.SqlClient;
 
 
 namespace TPFinalNivel2_Molina
@@ -164,6 +165,7 @@ namespace TPFinalNivel2_Molina
             CbxMarca.SelectedIndex = 0;
             CbxCampo.SelectedIndex = -1;
             TbxFiltrar.Clear();
+            errorpro1.Clear();
         }
 
         //Metodo de filtros por marca y categorias combinados.
@@ -221,7 +223,7 @@ namespace TPFinalNivel2_Molina
         {
             List<Articulo> listafiltrorapido;
             //Capturar imput.
-            string filtrorapido = TbxBusquedaRapida.Text;
+            string filtrorapido = TbxBusquedaRapida?.Text;
 
             if (filtrorapido.Length >= 2)
             {
@@ -236,7 +238,9 @@ namespace TPFinalNivel2_Molina
             DgvArticulos.DataSource = listafiltrorapido;
             HelperPresentacion.OcultarColumna(DgvArticulos, "ImagenUrl");
             HelperPresentacion.OcultarColumna(DgvArticulos, "Id");
-            SinSeleccionBloquearBotones();
+            //El siguiente paso es un error, debo dejar que la seleccion de botones la maneje seleccion change. Dado que se trata de otro evento dinamico.
+            //SinSeleccionBloquearBotones();
+            
         }
 
         //Carga de cbxCriterio segun el valor de cbxcampo.
@@ -269,10 +273,9 @@ namespace TPFinalNivel2_Molina
                         break;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                throw ex;
+                MessageBox.Show("Error al cargar los desplegables.");    
             }
         }
         //Validar filtro.
@@ -336,9 +339,13 @@ namespace TPFinalNivel2_Molina
                 DgvArticulos.DataSource=data.BusquedaAvanzada(campo, criterio, filtro);
                
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Fallo conexion con el servidor.");
+            }
+            catch
+            {
+                MessageBox.Show("Error al ejecutar el filtro.");
             }
         }
     }

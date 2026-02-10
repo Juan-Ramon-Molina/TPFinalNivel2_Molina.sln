@@ -30,7 +30,7 @@ namespace Datos_SQL_
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("Error en el proceso", ex);
             }
             finally { data.CerrarConexion(); }
 
@@ -47,7 +47,7 @@ namespace Datos_SQL_
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("Error en el proceso", ex);
             }
             finally { data.CerrarConexion(); }
         }

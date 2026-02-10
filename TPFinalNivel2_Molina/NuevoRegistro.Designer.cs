@@ -117,21 +117,22 @@
             this.TbxCodigo.Location = new System.Drawing.Point(150, 50);
             this.TbxCodigo.Name = "TbxCodigo";
             this.TbxCodigo.Size = new System.Drawing.Size(149, 27);
-            this.TbxCodigo.TabIndex = 7;
+            this.TbxCodigo.TabIndex = 0;
             // 
             // TbxPrecio
             // 
             this.TbxPrecio.Location = new System.Drawing.Point(150, 334);
             this.TbxPrecio.Name = "TbxPrecio";
             this.TbxPrecio.Size = new System.Drawing.Size(149, 27);
-            this.TbxPrecio.TabIndex = 8;
+            this.TbxPrecio.TabIndex = 7;
             // 
             // TbxImagen
             // 
             this.TbxImagen.Location = new System.Drawing.Point(150, 227);
             this.TbxImagen.Name = "TbxImagen";
-            this.TbxImagen.Size = new System.Drawing.Size(101, 27);
-            this.TbxImagen.TabIndex = 9;
+            this.TbxImagen.Size = new System.Drawing.Size(109, 27);
+            this.TbxImagen.TabIndex = 4;
+            this.TbxImagen.DoubleClick += new System.EventHandler(this.TbxImagen_DoubleClick);
             this.TbxImagen.Leave += new System.EventHandler(this.TbxImagen_Leave);
             // 
             // TbxDescripcion
@@ -140,14 +141,14 @@
             this.TbxDescripcion.Multiline = true;
             this.TbxDescripcion.Name = "TbxDescripcion";
             this.TbxDescripcion.Size = new System.Drawing.Size(149, 57);
-            this.TbxDescripcion.TabIndex = 10;
+            this.TbxDescripcion.TabIndex = 6;
             // 
             // TbxNombre
             // 
             this.TbxNombre.Location = new System.Drawing.Point(150, 93);
             this.TbxNombre.Name = "TbxNombre";
             this.TbxNombre.Size = new System.Drawing.Size(149, 27);
-            this.TbxNombre.TabIndex = 11;
+            this.TbxNombre.TabIndex = 1;
             // 
             // CbxMarca
             // 
@@ -156,7 +157,7 @@
             this.CbxMarca.Location = new System.Drawing.Point(150, 136);
             this.CbxMarca.Name = "CbxMarca";
             this.CbxMarca.Size = new System.Drawing.Size(149, 27);
-            this.CbxMarca.TabIndex = 12;
+            this.CbxMarca.TabIndex = 2;
             // 
             // CbxCategoria
             // 
@@ -165,7 +166,7 @@
             this.CbxCategoria.Location = new System.Drawing.Point(150, 175);
             this.CbxCategoria.Name = "CbxCategoria";
             this.CbxCategoria.Size = new System.Drawing.Size(149, 27);
-            this.CbxCategoria.TabIndex = 13;
+            this.CbxCategoria.TabIndex = 3;
             // 
             // PbxNuevo
             // 
@@ -178,10 +179,10 @@
             // 
             // BtnExaminarImagen
             // 
-            this.BtnExaminarImagen.Location = new System.Drawing.Point(258, 227);
+            this.BtnExaminarImagen.Location = new System.Drawing.Point(265, 226);
             this.BtnExaminarImagen.Name = "BtnExaminarImagen";
-            this.BtnExaminarImagen.Size = new System.Drawing.Size(41, 26);
-            this.BtnExaminarImagen.TabIndex = 15;
+            this.BtnExaminarImagen.Size = new System.Drawing.Size(34, 28);
+            this.BtnExaminarImagen.TabIndex = 5;
             this.BtnExaminarImagen.Text = "+";
             this.BtnExaminarImagen.UseVisualStyleBackColor = true;
             this.BtnExaminarImagen.Click += new System.EventHandler(this.BtnExaminarImagen_Click);
@@ -191,7 +192,7 @@
             this.BtnCargar.Location = new System.Drawing.Point(323, 266);
             this.BtnCargar.Name = "BtnCargar";
             this.BtnCargar.Size = new System.Drawing.Size(202, 37);
-            this.BtnCargar.TabIndex = 16;
+            this.BtnCargar.TabIndex = 9;
             this.BtnCargar.Text = "Cargar";
             this.BtnCargar.UseVisualStyleBackColor = true;
             this.BtnCargar.Click += new System.EventHandler(this.BtnCargar_Click);
@@ -201,7 +202,7 @@
             this.BtnCancelar.Location = new System.Drawing.Point(323, 319);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(202, 37);
-            this.BtnCancelar.TabIndex = 17;
+            this.BtnCancelar.TabIndex = 8;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -232,7 +233,9 @@
             this.Controls.Add(this.LblCodigo);
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "NuevoRegistro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NuevoRegistro";
             this.Load += new System.EventHandler(this.NuevoRegistro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PbxNuevo)).EndInit();

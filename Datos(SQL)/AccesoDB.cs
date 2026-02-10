@@ -40,7 +40,7 @@ namespace Datos_SQL_
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error en el proceso", ex);
             }
         }
         public void SetearParametros(string columna, object AtributoDelObj)
@@ -58,7 +58,7 @@ namespace Datos_SQL_
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("Error en el proceso", ex);
             }
 
         }

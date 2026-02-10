@@ -54,25 +54,29 @@
             // 
             // DgvArticulos
             // 
+            this.DgvArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvArticulos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.DgvArticulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.DgvArticulos.Location = new System.Drawing.Point(29, 253);
+            this.DgvArticulos.Location = new System.Drawing.Point(29, 267);
             this.DgvArticulos.MultiSelect = false;
             this.DgvArticulos.Name = "DgvArticulos";
             this.DgvArticulos.RowHeadersWidth = 51;
             this.DgvArticulos.RowTemplate.Height = 24;
             this.DgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvArticulos.Size = new System.Drawing.Size(673, 211);
-            this.DgvArticulos.TabIndex = 0;
+            this.DgvArticulos.Size = new System.Drawing.Size(777, 371);
+            this.DgvArticulos.TabIndex = 17;
             this.DgvArticulos.SelectionChanged += new System.EventHandler(this.DgvArticulos_SelectionChanged);
             // 
             // PbxArticulos
             // 
             this.PbxArticulos.Location = new System.Drawing.Point(29, 29);
             this.PbxArticulos.Name = "PbxArticulos";
-            this.PbxArticulos.Size = new System.Drawing.Size(211, 186);
+            this.PbxArticulos.Size = new System.Drawing.Size(279, 218);
             this.PbxArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PbxArticulos.TabIndex = 1;
             this.PbxArticulos.TabStop = false;
@@ -81,10 +85,10 @@
             // 
             this.BtnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.BtnFiltrar.Location = new System.Drawing.Point(585, 121);
+            this.BtnFiltrar.Location = new System.Drawing.Point(728, 145);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.Size = new System.Drawing.Size(78, 31);
-            this.BtnFiltrar.TabIndex = 5;
+            this.BtnFiltrar.TabIndex = 11;
             this.BtnFiltrar.Text = "Filtrar";
             this.BtnFiltrar.UseVisualStyleBackColor = false;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
@@ -93,10 +97,10 @@
             // 
             this.BtnQuitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnQuitar.ForeColor = System.Drawing.Color.Black;
-            this.BtnQuitar.Location = new System.Drawing.Point(256, 125);
+            this.BtnQuitar.Location = new System.Drawing.Point(403, 137);
             this.BtnQuitar.Name = "BtnQuitar";
             this.BtnQuitar.Size = new System.Drawing.Size(121, 39);
-            this.BtnQuitar.TabIndex = 6;
+            this.BtnQuitar.TabIndex = 5;
             this.BtnQuitar.Text = "Quitar";
             this.BtnQuitar.UseVisualStyleBackColor = false;
             this.BtnQuitar.Click += new System.EventHandler(this.BtnQuitar_Click);
@@ -105,10 +109,10 @@
             // 
             this.BtnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnModificar.ForeColor = System.Drawing.Color.Black;
-            this.BtnModificar.Location = new System.Drawing.Point(384, 80);
+            this.BtnModificar.Location = new System.Drawing.Point(531, 86);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(121, 39);
-            this.BtnModificar.TabIndex = 8;
+            this.BtnModificar.TabIndex = 4;
             this.BtnModificar.Text = "Modificar";
             this.BtnModificar.UseVisualStyleBackColor = false;
             this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
@@ -117,10 +121,10 @@
             // 
             this.BtnAgregarNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnAgregarNuevo.ForeColor = System.Drawing.Color.Black;
-            this.BtnAgregarNuevo.Location = new System.Drawing.Point(256, 80);
+            this.BtnAgregarNuevo.Location = new System.Drawing.Point(403, 86);
             this.BtnAgregarNuevo.Name = "BtnAgregarNuevo";
             this.BtnAgregarNuevo.Size = new System.Drawing.Size(121, 39);
-            this.BtnAgregarNuevo.TabIndex = 9;
+            this.BtnAgregarNuevo.TabIndex = 3;
             this.BtnAgregarNuevo.Text = "Nuevo";
             this.BtnAgregarNuevo.UseVisualStyleBackColor = false;
             this.BtnAgregarNuevo.Click += new System.EventHandler(this.BtnAgregarNuevo_Click);
@@ -129,10 +133,10 @@
             // 
             this.BtnMarcas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnMarcas.ForeColor = System.Drawing.Color.Black;
-            this.BtnMarcas.Location = new System.Drawing.Point(384, 31);
+            this.BtnMarcas.Location = new System.Drawing.Point(531, 31);
             this.BtnMarcas.Name = "BtnMarcas";
             this.BtnMarcas.Size = new System.Drawing.Size(121, 39);
-            this.BtnMarcas.TabIndex = 10;
+            this.BtnMarcas.TabIndex = 2;
             this.BtnMarcas.Text = "Marcas";
             this.BtnMarcas.UseVisualStyleBackColor = false;
             this.BtnMarcas.Click += new System.EventHandler(this.BtnMarcas_Click);
@@ -141,10 +145,10 @@
             // 
             this.BtnInacctivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnInacctivos.ForeColor = System.Drawing.Color.Black;
-            this.BtnInacctivos.Location = new System.Drawing.Point(384, 125);
+            this.BtnInacctivos.Location = new System.Drawing.Point(531, 137);
             this.BtnInacctivos.Name = "BtnInacctivos";
             this.BtnInacctivos.Size = new System.Drawing.Size(121, 39);
-            this.BtnInacctivos.TabIndex = 11;
+            this.BtnInacctivos.TabIndex = 6;
             this.BtnInacctivos.Text = "Inactivos";
             this.BtnInacctivos.UseVisualStyleBackColor = false;
             this.BtnInacctivos.Click += new System.EventHandler(this.BtnInacctivos_Click);
@@ -153,26 +157,28 @@
             // 
             this.BtnCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnCategorias.ForeColor = System.Drawing.Color.Black;
-            this.BtnCategorias.Location = new System.Drawing.Point(256, 31);
+            this.BtnCategorias.Location = new System.Drawing.Point(403, 31);
             this.BtnCategorias.Name = "BtnCategorias";
             this.BtnCategorias.Size = new System.Drawing.Size(121, 39);
-            this.BtnCategorias.TabIndex = 12;
+            this.BtnCategorias.TabIndex = 1;
             this.BtnCategorias.Text = "Categorias";
             this.BtnCategorias.UseVisualStyleBackColor = false;
             this.BtnCategorias.Click += new System.EventHandler(this.BtnCategorias_Click);
             // 
             // TbxBusquedaRapida
             // 
-            this.TbxBusquedaRapida.Location = new System.Drawing.Point(127, 490);
+            this.TbxBusquedaRapida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TbxBusquedaRapida.Location = new System.Drawing.Point(133, 663);
             this.TbxBusquedaRapida.Name = "TbxBusquedaRapida";
             this.TbxBusquedaRapida.Size = new System.Drawing.Size(136, 27);
-            this.TbxBusquedaRapida.TabIndex = 13;
+            this.TbxBusquedaRapida.TabIndex = 14;
             this.TbxBusquedaRapida.TextChanged += new System.EventHandler(this.TbxBusquedaRapida_TextChanged);
             // 
             // LblBusquedaRapida
             // 
+            this.LblBusquedaRapida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LblBusquedaRapida.AutoSize = true;
-            this.LblBusquedaRapida.Location = new System.Drawing.Point(25, 493);
+            this.LblBusquedaRapida.Location = new System.Drawing.Point(31, 666);
             this.LblBusquedaRapida.Name = "LblBusquedaRapida";
             this.LblBusquedaRapida.Size = new System.Drawing.Size(96, 19);
             this.LblBusquedaRapida.TabIndex = 14;
@@ -180,39 +186,41 @@
             // 
             // TbxFiltrar
             // 
-            this.TbxFiltrar.Location = new System.Drawing.Point(686, 125);
+            this.TbxFiltrar.Location = new System.Drawing.Point(829, 149);
             this.TbxFiltrar.Name = "TbxFiltrar";
             this.TbxFiltrar.Size = new System.Drawing.Size(122, 27);
-            this.TbxFiltrar.TabIndex = 15;
+            this.TbxFiltrar.TabIndex = 10;
             // 
             // CbxCategoria
             // 
+            this.CbxCategoria.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.CbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbxCategoria.FormattingEnabled = true;
-            this.CbxCategoria.Location = new System.Drawing.Point(714, 333);
+            this.CbxCategoria.Location = new System.Drawing.Point(836, 397);
             this.CbxCategoria.Name = "CbxCategoria";
-            this.CbxCategoria.Size = new System.Drawing.Size(94, 27);
-            this.CbxCategoria.TabIndex = 16;
+            this.CbxCategoria.Size = new System.Drawing.Size(115, 27);
+            this.CbxCategoria.TabIndex = 13;
             this.CbxCategoria.SelectedIndexChanged += new System.EventHandler(this.CbxCategoria_SelectedIndexChanged);
             // 
             // CbxMarca
             // 
+            this.CbxMarca.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.CbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbxMarca.FormattingEnabled = true;
-            this.CbxMarca.Location = new System.Drawing.Point(714, 265);
+            this.CbxMarca.Location = new System.Drawing.Point(836, 329);
             this.CbxMarca.Name = "CbxMarca";
-            this.CbxMarca.Size = new System.Drawing.Size(94, 27);
-            this.CbxMarca.TabIndex = 17;
+            this.CbxMarca.Size = new System.Drawing.Size(115, 27);
+            this.CbxMarca.TabIndex = 12;
             this.CbxMarca.SelectedIndexChanged += new System.EventHandler(this.CbxMarca_SelectedIndexChanged);
             // 
             // BtnVisualizar
             // 
             this.BtnVisualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnVisualizar.ForeColor = System.Drawing.Color.Black;
-            this.BtnVisualizar.Location = new System.Drawing.Point(256, 174);
+            this.BtnVisualizar.Location = new System.Drawing.Point(403, 182);
             this.BtnVisualizar.Name = "BtnVisualizar";
-            this.BtnVisualizar.Size = new System.Drawing.Size(249, 41);
-            this.BtnVisualizar.TabIndex = 18;
+            this.BtnVisualizar.Size = new System.Drawing.Size(249, 65);
+            this.BtnVisualizar.TabIndex = 0;
             this.BtnVisualizar.Text = "Ver";
             this.BtnVisualizar.UseVisualStyleBackColor = false;
             this.BtnVisualizar.Click += new System.EventHandler(this.BtnVisualizar_Click);
@@ -220,7 +228,7 @@
             // LblCriterio
             // 
             this.LblCriterio.AutoSize = true;
-            this.LblCriterio.Location = new System.Drawing.Point(591, 84);
+            this.LblCriterio.Location = new System.Drawing.Point(734, 101);
             this.LblCriterio.Name = "LblCriterio";
             this.LblCriterio.Size = new System.Drawing.Size(72, 19);
             this.LblCriterio.TabIndex = 19;
@@ -229,7 +237,7 @@
             // LblCampo
             // 
             this.LblCampo.AutoSize = true;
-            this.LblCampo.Location = new System.Drawing.Point(592, 42);
+            this.LblCampo.Location = new System.Drawing.Point(735, 59);
             this.LblCampo.Name = "LblCampo";
             this.LblCampo.Size = new System.Drawing.Size(71, 19);
             this.LblCampo.TabIndex = 20;
@@ -239,28 +247,29 @@
             // 
             this.CbxCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbxCampo.FormattingEnabled = true;
-            this.CbxCampo.Location = new System.Drawing.Point(686, 39);
+            this.CbxCampo.Location = new System.Drawing.Point(829, 56);
             this.CbxCampo.Name = "CbxCampo";
             this.CbxCampo.Size = new System.Drawing.Size(122, 27);
-            this.CbxCampo.TabIndex = 21;
+            this.CbxCampo.TabIndex = 8;
             this.CbxCampo.SelectedIndexChanged += new System.EventHandler(this.CbxCampo_SelectedIndexChanged);
             // 
             // CbxCriterio
             // 
             this.CbxCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbxCriterio.FormattingEnabled = true;
-            this.CbxCriterio.Location = new System.Drawing.Point(686, 81);
+            this.CbxCriterio.Location = new System.Drawing.Point(829, 98);
             this.CbxCriterio.Name = "CbxCriterio";
             this.CbxCriterio.Size = new System.Drawing.Size(122, 27);
-            this.CbxCriterio.TabIndex = 22;
+            this.CbxCriterio.TabIndex = 9;
             // 
             // BtnResetDgv
             // 
-            this.BtnResetDgv.Location = new System.Drawing.Point(326, 479);
+            this.BtnResetDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnResetDgv.Location = new System.Drawing.Point(469, 652);
             this.BtnResetDgv.Name = "BtnResetDgv";
             this.BtnResetDgv.Size = new System.Drawing.Size(482, 46);
-            this.BtnResetDgv.TabIndex = 23;
-            this.BtnResetDgv.Text = "Refrescar pantalla";
+            this.BtnResetDgv.TabIndex = 16;
+            this.BtnResetDgv.Text = "Refrescar pantalla (Alt +&R )";
             this.BtnResetDgv.UseVisualStyleBackColor = true;
             this.BtnResetDgv.Click += new System.EventHandler(this.BtnResetDgv_Click);
             // 
@@ -269,7 +278,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(820, 534);
+            this.ClientSize = new System.Drawing.Size(976, 719);
             this.Controls.Add(this.BtnResetDgv);
             this.Controls.Add(this.CbxCriterio);
             this.Controls.Add(this.CbxCampo);
@@ -294,6 +303,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "VentPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de control";
             this.Load += new System.EventHandler(this.VentPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvArticulos)).EndInit();
